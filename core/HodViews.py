@@ -293,3 +293,8 @@ def edit_subject_save(request):
         except:
             messages.error(request, "Failed to Edit Subject")
             return HttpResponseRedirect(reverse("edit_subject", kwargs={"subject_id": subject_id}))
+
+
+def edit_course(request, course_id):
+    course = Courses.objects.get(id=course_id)
+    return render(request, "hod_template/edit_course_template.html", {"course": course, "id": course_id})
