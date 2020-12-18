@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from core.models import CustomUser, Courses
+from core.models import CustomUser, Courses, Subjects
 
 from core.forms import AddStudentForm
 
@@ -104,3 +104,29 @@ def add_student_save(request):
         else:
             form = AddStudentForm(request.POST)
             return render(request, "hod_template/add_student_template.html", {"form": form})
+
+
+def add_subject(request):
+    courses = Courses.objects.all()
+    staffs = CustomUser.objects.filter(user_type=2)
+    return render(request, "hod_template/add_subject_template.html", {"staffs": staffs, "courses": courses})
+
+
+def add_subject_save(request):
+    if request.method != "POST":
+        return HttpResponse("<h2>Method Not Allowed</h2>")
+    else:
+        subject_name = request.POST.get("subject_name")
+        course_id = request.POST.get("course")
+        course = Courses.objects.get(id=course_id)
+        staff_id = request.POST.get("staff")
+        staff = CustomUser.objects.get(id=staff_id)
+
+        try:
+            subject = Subjects(subject_name=subject_name, course_id=course, staff_id=staff)
+            subject.save()
+            messages.success(request, "Successfully Added Subject")
+            return HttpResponseRedirect(reverse("add_subject"))
+        except:
+            messages.error(request, "Failed to Add Subject")
+            return HttpResponseRedirect(reverse("add_subject"))
