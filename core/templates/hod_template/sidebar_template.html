@@ -34,6 +34,7 @@
             </a>
           </li>
            <li class="nav-item">
+             {% url 'edit_staff' staff_id=id as edit_staff %}
             {% url 'manage_staff' as manage_staff %}
             <a href="{% url 'manage_staff' %}" class="nav-link {% if request.path == manage_staff %} active {% endif %}">
               <i class="nav-icon fas fa-th"></i>
