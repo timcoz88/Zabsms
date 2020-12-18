@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from core.models import CustomUser, Courses, Subjects
+from core.models import CustomUser, Courses, Subjects, Staffs
 
 from core.forms import AddStudentForm
 
@@ -130,3 +130,8 @@ def add_subject_save(request):
         except:
             messages.error(request, "Failed to Add Subject")
             return HttpResponseRedirect(reverse("add_subject"))
+
+
+def manage_staff(request):
+    staffs = Staffs.objects.all()
+    return render(request, "hod_template/manage_staff_template.html", {"staffs": staffs})
