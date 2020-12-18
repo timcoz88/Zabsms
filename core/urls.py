@@ -28,4 +28,5 @@ urlpatterns = [
     path('edit_subject/<str:subject_id>', HodViews.edit_subject, name="edit_subject"),
     path('edit_subject_save', HodViews.edit_subject_save, name="edit_subject_save"),
     path('edit_course/<str:course_id>', HodViews.edit_course, name="edit_course"),
+    path('edit_course_save', HodViews.edit_course_save, name="edit_course_save"),
 ]
