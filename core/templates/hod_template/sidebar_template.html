@@ -52,8 +52,8 @@
             </a>
           </li>
           <li class="nav-item">
-
-            <a href="#" class="nav-link">
+            {% url 'manage_student' as manage_student %}
+            <a href="{% url 'manage_student' %}" class="nav-link {% if request.path == manage_student %} active {% endif %}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Manage Students

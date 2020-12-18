@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from core.models import CustomUser, Courses, Subjects, Staffs
+from core.models import CustomUser, Courses, Subjects, Staffs, Students
 
 from core.forms import AddStudentForm
 
@@ -135,3 +135,8 @@ def add_subject_save(request):
 def manage_staff(request):
     staffs = Staffs.objects.all()
     return render(request, "hod_template/manage_staff_template.html", {"staffs": staffs})
+
+
+def manage_student(request):
+    students = Students.objects.all()
+    return render(request, "hod_template/manage_student_template.html", {"students": students})
