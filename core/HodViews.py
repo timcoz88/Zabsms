@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from core.models import CustomUser
+from core.models import CustomUser, Courses
 
 
 def admin_home(request):
@@ -34,3 +34,24 @@ def add_staff_save(request):
         except:
             messages.error(request, "Failed to Add Staff")
             return HttpResponseRedirect(reverse("add_staff"))
+
+
+def add_course(request):
+    return render(request, "hod_template/add_course_template.html")
+
+
+def add_course_save(request):
+    if request.method != "POST":
+        return HttpResponse("Method Not Allowed")
+    else:
+        course = request.POST.get("course")
+        try:
+            course_model = Courses(course_name=course)
+            course_model.save()
+            messages.success(request, "Successfully Added Course")
+            return HttpResponseRedirect(reverse("add_course"))
+        except:
+            messages.error(request, "Failed To Add Course")
+            return HttpResponseRedirect(reverse("add_course"))
+
+
