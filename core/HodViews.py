@@ -260,3 +260,11 @@ def edit_student_save(request):
             student = Students.objects.get(admin=student_id)
             return render(request, "hod_template/edit_student_template.html",
                           {"form": form, "id": student_id, "username": student.admin.username})
+
+
+def edit_subject(request, subject_id):
+    subject = Subjects.objects.get(id=subject_id)
+    courses = Courses.objects.all()
+    staffs = CustomUser.objects.filter(user_type=2)
+    return render(request, "hod_template/edit_subject_template.html",
+                  {"subject": subject, "staffs": staffs, "courses": courses, "id": subject_id})
