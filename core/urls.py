@@ -8,5 +8,6 @@ urlpatterns = [
     path('get_user_details', views.GetUserDetails),
     path('logout_user', views.logout_user, name="logout"),
     path('doLogin', views.doLogin, name="do_login"),
-    path('admin_home', HodViews.admin_home, name="admin_home")
+    path('admin_home', HodViews.admin_home, name="admin_home"),
+    path('add_staff', HodViews.add_staff, name="add_staff")
 ]
