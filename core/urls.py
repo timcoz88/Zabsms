@@ -20,4 +20,5 @@ urlpatterns = [
     path('manage_staff', HodViews.manage_staff, name="manage_staff"),
     path('manage_student', HodViews.manage_student, name="manage_student"),
     path('manage_course', HodViews.manage_course, name="manage_course"),
+    path('manage_subject', HodViews.manage_subject, name="manage_subject"),
 ]

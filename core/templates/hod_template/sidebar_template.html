@@ -88,8 +88,8 @@
             </a>
           </li>
           <li class="nav-item">
-
-            <a href="#" class="nav-link ">
+            {% url 'manage_subject' as manage_subject %}
+            <a href="{% url 'manage_subject' %}" class="nav-link {% if request.path == manage_subject %} active {% endif %} ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Manage Subject
