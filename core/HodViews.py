@@ -6,7 +6,7 @@ from django.urls import reverse
 
 from core.models import CustomUser, Courses, Subjects, Staffs, Students
 
-from core.forms import AddStudentForm
+from core.forms import AddStudentForm, EditStudentForm
 
 
 def admin_home(request):
@@ -184,3 +184,20 @@ def edit_staff_save(request):
         except:
             messages.error(request, "Failed to Edit Staff")
             return HttpResponseRedirect(reverse("edit_staff", kwargs={"staff_id": staff_id}))
+
+
+def edit_student(request, student_id):
+    request.session['student_id'] = student_id
+    student = Students.objects.get(admin=student_id)
+    form = EditStudentForm()
+    form.fields['email'].initial = student.admin.email
+    form.fields['first_name'].initial = student.admin.first_name
+    form.fields['last_name'].initial = student.admin.last_name
+    form.fields['username'].initial = student.admin.username
+    form.fields['address'].initial = student.address
+    form.fields['course'].initial = student.course_id.id
+    form.fields['sex'].initial = student.gender
+    form.fields['session_start'].initial = student.session_start_year
+    form.fields['session_end'].initial = student.session_end_year
+    return render(request, "hod_template/edit_student_template.html",
+                  {"form": form, "id": student_id, "username": student.admin.username})
