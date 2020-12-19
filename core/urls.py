@@ -1,6 +1,6 @@
 from django.urls import path
 
-from core import views, HodViews
+from core import views, HodViews, StaffViews
 
 urlpatterns = [
     path('demo', views.showDemoPage, name="demo_page"),
@@ -29,4 +29,6 @@ urlpatterns = [
     path('edit_subject_save', HodViews.edit_subject_save, name="edit_subject_save"),
     path('edit_course/<str:course_id>', HodViews.edit_course, name="edit_course"),
     path('edit_course_save', HodViews.edit_course_save, name="edit_course_save"),
+    # staff
+    path('staff_home', StaffViews.staff_home, name="staff_home"),
 ]
