@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from core.models import CustomUser, Courses, Subjects, Staffs, Students
+from core.models import CustomUser, Courses, Subjects, Staffs, Students, SessionYear
 
 from core.forms import AddStudentForm, EditStudentForm
 
@@ -320,3 +320,21 @@ def edit_course_save(request):
 
 def manage_session(request):
     return render(request, "hod_template/manage_session_template.html")
+
+
+def add_session_save(request):
+    if request.method != "POST":
+        return HttpResponseRedirect(reverse("manage_session"))
+    else:
+        session_start_year = request.POST.get("session_start")
+        session_end_year = request.POST.get("session_end")
+
+        try:
+            session_year = SessionYear(session_start_year=session_start_year, session_end_year=session_end_year)
+            session_year.save()
+            messages.success(request, "Successfully Added Session")
+            return HttpResponseRedirect(reverse("manage_session"))
+        except Exception as e:
+            print(e)
+            messages.error(request, "Failed to Add Session")
+            return HttpResponseRedirect(reverse("manage_session"))
