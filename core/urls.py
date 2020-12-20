@@ -35,6 +35,7 @@ urlpatterns = [
     # staff
     path('staff_home', StaffViews.staff_home, name="staff_home"),
     path('staff_take_attendance', StaffViews.staff_take_attendance, name="staff_take_attendance"),
+    path('get_students', StaffViews.get_students, name="get_students"),
 
     # student
     path('student_home', StudentViews.student_home, name="student_home")
