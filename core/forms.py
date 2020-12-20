@@ -63,6 +63,7 @@ class EditStudentForm(forms.Form):
     address = forms.CharField(label="Address", max_length=50, widget=forms.TextInput(attrs={"class": "form-control"}))
 
     course_list = []
+
     try:
         courses = Courses.objects.all()
         for course in courses:
@@ -72,6 +73,7 @@ class EditStudentForm(forms.Form):
         course_list = []
 
     session_list = []
+
     try:
         sessions = SessionYearModel.object.all()
 
