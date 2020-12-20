@@ -46,7 +46,7 @@ class Subjects(models.Model):
     objects = models.Manager()
 
 
-class SessionYear(models.Model):
+class SessionYearModel(models.Model):
     id = models.AutoField(primary_key=True)
     session_start_year = models.DateField()
     session_end_year = models.DateField()
@@ -60,7 +60,7 @@ class Students(models.Model):
     profile_pic = models.FileField()
     address = models.TextField()
     course_id = models.ForeignKey(Courses, on_delete=models.DO_NOTHING)
-    session_year_id = models.ForeignKey(SessionYear, on_delete=models.CASCADE)
+    session_year_id = models.ForeignKey(SessionYearModel, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
@@ -71,7 +71,7 @@ class Attendance(models.Model):
     subject_id = models.ForeignKey(Subjects, on_delete=models.DO_NOTHING)
     attendance_date = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    session_year_id = models.ForeignKey(SessionYear, on_delete=models.CASCADE)
+    session_year_id = models.ForeignKey(SessionYearModel, on_delete=models.CASCADE)
     updated_at = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
 
