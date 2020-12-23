@@ -43,6 +43,7 @@ urlpatterns = [
     path('save_update_attendance_data', StaffViews.save_update_attendance_data, name="save_update_attendance_data"),
     path('staff_apply_leave', StaffViews.staff_apply_leave, name="staff_apply_leave"),
     path('staff_apply_leave_save', StaffViews.staff_apply_leave_save, name="staff_apply_leave_save"),
+    path('staff_feedback', StaffViews.staff_feedback, name="staff_feedback"),
     # student
     path('student_home', StudentViews.student_home, name="student_home")
 ]

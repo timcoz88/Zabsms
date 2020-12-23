@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
-from core.models import Subjects, SessionYearModel, Students, Attendance, AttendanceReport, Staffs, LeaveReportStaff
+from core.models import Subjects, SessionYearModel, Students, Attendance, AttendanceReport, Staffs, LeaveReportStaff,FeedBackStaffs
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -143,3 +143,9 @@ def staff_apply_leave_save(request):
         except:
             messages.error(request, "Failed To Apply for Leave")
             return HttpResponseRedirect(reverse("staff_apply_leave"))
+
+
+def staff_feedback(request):
+    staff_id = Staffs.objects.get(admin=request.user.id)
+    feedback_data = FeedBackStaffs.objects.filter(staff_id=staff_id)
+    return render(request, "staff_template/staff_feedback.html", {"feedback_data": feedback_data})
