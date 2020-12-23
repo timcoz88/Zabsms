@@ -15,7 +15,7 @@ Feedback Message
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-               <form action="" method="post">
+               <form action="{% url 'staff_feedback_save' %}" method="post">
                 <div class="card-body">
 
                     {% csrf_token %}
