@@ -126,6 +126,13 @@ AUTHENTICATION_BACKENDS = ['core.EmailBackEnd.EmailBackEnd']
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_mails")
 
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIl_PORT = 587
+# EMAIL_HOST_USER = "GMAIL_EMAIL"
+# EMAIL_HOST_PASSWORD = "GMAIL PASSWORD"
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = "Student management System <GMAIl_EMAIL>"
+
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
