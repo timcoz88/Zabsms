@@ -15,7 +15,7 @@ View Attendance Data
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-             <form action="" method="post">
+             <form action="{% url 'student_view_attendance_post' %}" method="post">
                 <div class="card-body">
                     {% csrf_token %}
                    <div class="form-group">

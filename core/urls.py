@@ -49,4 +49,5 @@ urlpatterns = [
     # student
     path('student_home', StudentViews.student_home, name="student_home"),
     path('student_view_attendance', StudentViews.student_view_attendance, name="student_view_attendance"),
+    path('student_view_attendance_post', StudentViews.student_view_attendance_post, name="student_view_attendance_post")
 ]
