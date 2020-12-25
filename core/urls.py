@@ -47,5 +47,6 @@ urlpatterns = [
     path('staff_feedback', StaffViews.staff_feedback, name="staff_feedback"),
     path('staff_feedback_save', StaffViews.staff_feedback_save, name="staff_feedback_save"),
     # student
-    path('student_home', StudentViews.student_home, name="student_home")
+    path('student_home', StudentViews.student_home, name="student_home"),
+    path('student_view_attendance', StudentViews.student_view_attendance, name="student_view_attendance"),
 ]
