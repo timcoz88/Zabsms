@@ -1,10 +1,11 @@
-from django.urls import path
+from django.urls import path, include
 
 from core import views, HodViews, StaffViews, StudentViews
 
 urlpatterns = [
     path('demo', views.showDemoPage, name="demo_page"),
     path('', views.showLoginPage, name="show_login"),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('get_user_details', views.GetUserDetails),
     path('logout_user', views.logout_user, name="logout"),
     path('doLogin', views.doLogin, name="do_login"),

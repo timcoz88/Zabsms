@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on localhost:8000
+From: webmaster@localhost
+To: teacher@gmail.com
+Date: Fri, 25 Dec 2020 09:59:25 -0000
+Message-ID: <160889036590.3919.1377351123707137565@HP-EliteBook-840-G1>
+
+
+You're receiving this email because you requested a password reset for your user account at localhost:8000.
+
+Please go to the following page and choose a new password:
+
+http://localhost:8000/accounts/reset/Mw/affl31-c19f9ca8bfc51b03a9bc040118f2c30a/
+
+Your username, in case you’ve forgotten: teacher_sms
+
+Thanks for using our site!
+
+The localhost:8000 team
+
+
+
+-------------------------------------------------------------------------------
