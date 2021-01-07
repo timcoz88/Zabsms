@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
-from core.models import CustomUser, Courses, Subjects, Staffs, Students, SessionYearModel
+from core.models import CustomUser, Courses, Subjects, Staffs, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs
 
 from core.forms import AddStudentForm, EditStudentForm
 
@@ -354,3 +354,11 @@ def check_username_exist(request):
         return HttpResponse(True)
     else:
         return HttpResponse(False)
+
+def staff_feedback_message(request):
+    feedbacks=FeedBackStaffs.objects.all()
+    return render(request,"hod_template/staff_feedback_template.html",{"feedbacks":feedbacks})
+
+def student_feedback_message(request):
+    feedbacks=FeedBackStudent.objects.all()
+    return render(request,"hod_template/student_feedback_template.html",{"feedbacks":feedbacks})
