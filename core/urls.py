@@ -65,7 +65,7 @@ urlpatterns = [
     path('staff_feedback_save', StaffViews.staff_feedback_save, name="staff_feedback_save"),
     path('staff_profile', StaffViews.staff_profile, name="staff_profile"),
     path('staff_profile_save', StaffViews.staff_profile_save, name="staff_profile_save"),
-    
+
     # student
     path('student_home', StudentViews.student_home, name="student_home"),
     path('student_view_attendance', StudentViews.student_view_attendance, name="student_view_attendance"),
@@ -74,4 +74,6 @@ urlpatterns = [
     path('student_apply_leave_save', StudentViews.student_apply_leave_save, name="student_apply_leave_save"),
     path('student_feedback', StudentViews.student_feedback, name="student_feedback"),
     path('student_feedback_save', StudentViews.student_feedback_save, name="student_feedback_save"),
+    path('student_profile', StudentViews.student_profile, name="student_profile"),
+    path('student_profile_save', StudentViews.student_profile_save, name="student_profile_save"),
 ]
