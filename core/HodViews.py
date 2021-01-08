@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
-from core.models import CustomUser, Courses, Subjects, Staffs, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent
+from core.models import CustomUser, Courses, Subjects, Staffs, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff
 
 from core.forms import AddStudentForm, EditStudentForm
 
@@ -404,3 +404,7 @@ def student_disapprove_leave(request,leave_id):
     leave.leave_status=2
     leave.save()
     return HttpResponseRedirect(reverse("student_leave_view"))
+
+def staff_leave_view(request):
+    leaves=LeaveReportStaff.objects.all()
+    return render(request,"hod_template/staff_leave_view.html",{"leaves":leaves})

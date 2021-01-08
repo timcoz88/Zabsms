@@ -41,6 +41,7 @@ urlpatterns = [
     path('student_leave_view', HodViews.student_leave_view,name="student_leave_view"),
     path('student_approve_leave/<str:leave_id>', HodViews.student_approve_leave,name="student_approve_leave"),
     path('student_disapprove_leave/<str:leave_id>', HodViews.student_disapprove_leave,name="student_disapprove_leave"),
+    path('staff_leave_view', HodViews.staff_leave_view,name="staff_leave_view"),
 
     # staff
     path('staff_home', StaffViews.staff_home, name="staff_home"),
