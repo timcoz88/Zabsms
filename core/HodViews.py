@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
-from core.models import CustomUser, Courses, Subjects, Staffs, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs
+from core.models import CustomUser, Courses, Subjects, Staffs, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent
 
 from core.forms import AddStudentForm, EditStudentForm
 
@@ -388,3 +388,7 @@ def staff_feedback_message_replied(request):
         return HttpResponse("True")
     except:
         return HttpResponse("False")
+
+def student_leave_view(request):
+    leaves=LeaveReportStudent.objects.all()
+    return render(request,"hod_template/student_leave_view.html",{"leaves":leaves})
