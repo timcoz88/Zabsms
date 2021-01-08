@@ -408,3 +408,16 @@ def student_disapprove_leave(request,leave_id):
 def staff_leave_view(request):
     leaves=LeaveReportStaff.objects.all()
     return render(request,"hod_template/staff_leave_view.html",{"leaves":leaves})
+
+def staff_approve_leave(request,leave_id):
+    leave=LeaveReportStaff.objects.get(id=leave_id)
+    leave.leave_status=1
+    leave.save()
+    return HttpResponseRedirect(reverse("staff_leave_view"))
+
+def staff_disapprove_leave(request,leave_id):
+    leave=LeaveReportStaff.objects.get(id=leave_id)
+    leave.leave_status=2
+    leave.save()
+    return HttpResponseRedirect(reverse("staff_leave_view"))
+
