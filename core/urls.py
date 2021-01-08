@@ -38,7 +38,9 @@ urlpatterns = [
     path('staff_feedback_message', HodViews.staff_feedback_message,name="staff_feedback_message"),
     path('student_feedback_message_replied', HodViews.student_feedback_message_replied,name="student_feedback_message_replied"),
     path('staff_feedback_message_replied', HodViews.staff_feedback_message_replied,name="staff_feedback_message_replied"),
-     path('student_leave_view', HodViews.student_leave_view,name="student_leave_view"),
+    path('student_leave_view', HodViews.student_leave_view,name="student_leave_view"),
+    path('student_approve_leave/<str:leave_id>', HodViews.student_approve_leave,name="student_approve_leave"),
+    path('student_disapprove_leave/<str:leave_id>', HodViews.student_disapprove_leave,name="student_disapprove_leave"),
 
     # staff
     path('staff_home', StaffViews.staff_home, name="staff_home"),
