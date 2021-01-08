@@ -76,4 +76,5 @@ urlpatterns = [
     path('student_feedback_save', StudentViews.student_feedback_save, name="student_feedback_save"),
     path('student_profile', StudentViews.student_profile, name="student_profile"),
     path('student_profile_save', StudentViews.student_profile_save, name="student_profile_save"),
+    path('student_fcmtoken_save', StudentViews.student_fcmtoken_save, name="student_fcmtoken_save"),
 ]
