@@ -5,7 +5,7 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 from core.models import Subjects, SessionYearModel, Students, Attendance, AttendanceReport, Staffs, LeaveReportStaff, \
-    FeedBackStaffs, CustomUser
+    FeedBackStaffs, CustomUser, Courses
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
