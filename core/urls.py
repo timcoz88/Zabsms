@@ -49,6 +49,8 @@ urlpatterns = [
     path('admin_get_attendance_student', HodViews.admin_get_attendance_student,name="admin_get_attendance_student"),
     path('admin_profile', HodViews.admin_profile,name="admin_profile"),
     path('admin_profile_save', HodViews.admin_profile_save,name="admin_profile_save"),
+    path('admin_send_notification_staff', HodViews.admin_send_notification_staff,name="admin_send_notification_staff"),
+    path('send_staff_notification', HodViews.send_staff_notification,name="send_staff_notification"),
 
     # staff
     path('staff_home', StaffViews.staff_home, name="staff_home"),
@@ -67,6 +69,7 @@ urlpatterns = [
     path('staff_profile_save', StaffViews.staff_profile_save, name="staff_profile_save"),
     path('staff_fcmtoken_save', StaffViews.staff_fcmtoken_save, name="staff_fcmtoken_save"),
 
+
     # student
     path('student_home', StudentViews.student_home, name="student_home"),
     path('student_view_attendance', StudentViews.student_view_attendance, name="student_view_attendance"),
@@ -78,4 +81,5 @@ urlpatterns = [
     path('student_profile', StudentViews.student_profile, name="student_profile"),
     path('student_profile_save', StudentViews.student_profile_save, name="student_profile_save"),
     path('student_fcmtoken_save', StudentViews.student_fcmtoken_save, name="student_fcmtoken_save"),
+    path('firebase-messaging-sw.js',views.showFirebaseJS,name="show_firebase_js"),
 ]

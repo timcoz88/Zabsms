@@ -2,11 +2,12 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 import json
+import requests
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
-from core.models import CustomUser, Courses, Subjects, Staffs, Students, Attendance, AttendanceReport, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff
+from core.models import CustomUser, Courses, Subjects, Staffs, Students, Attendance, AttendanceReport, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, NotificationStaffs
 
 from core.forms import AddStudentForm, EditStudentForm
 
@@ -528,5 +529,32 @@ def admin_profile_save(request):
         except:
             messages.error(request, "Failed to Update Profile")
             return HttpResponseRedirect(reverse("admin_profile"))
+
+def admin_send_notification_staff(request):
+    staffs=Staffs.objects.all()
+    return render(request,"hod_template/staff_notification.html",{"staffs":staffs})
+
+@csrf_exempt
+def send_staff_notification(request):
+    id=request.POST.get("id")
+    message=request.POST.get("message")
+    staff=Staffs.objects.get(admin=id)
+    token=staff.fcm_token
+    url="https://fcm.googleapis.com/fcm/send"
+    body={
+        "notification":{
+            "title":"Student Management System",
+            "body":message,
+            "click_action":"https://studentmanagementsystem22.herokuapp.com/staff_all_notification",
+            "icon":"http://studentmanagementsystem22.herokuapp.com/static/dist/img/user2-160x160.jpg"
+        },
+        "to":token
+    }
+    headers={"Content-Type":"application/json","Authorization":"key=SERVER_KEY_HERE"}
+    data=requests.post(url,data=json.dumps(body),headers=headers)
+    notification=NotificationStaffs(staff_id=staff,message=message)
+    notification.save()
+    print(data.text)
+    return HttpResponse("True")
 
 
