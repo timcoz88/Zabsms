@@ -545,8 +545,8 @@ def send_staff_notification(request):
         "notification":{
             "title":"Student Management System",
             "body":message,
-            "click_action":"https://studentmanagementsystem22.herokuapp.com/staff_all_notification",
-            "icon":"http://studentmanagementsystem22.herokuapp.com/static/dist/img/user2-160x160.jpg"
+            "click_action":"http://localhost:8000/staff_all_notification",
+            "icon":"http://localhost:8000/static/dist/img/user2-160x160.jpg"
         },
         "to":token
     }
@@ -572,8 +572,8 @@ def send_student_notification(request):
         "notification":{
             "title":"Student Management System",
             "body":message,
-            "click_action": "https://studentmanagementsystem22.herokuapp.com/student_all_notification",
-            "icon": "http://studentmanagementsystem22.herokuapp.com/static/dist/img/user2-160x160.jpg"
+            "click_action": "http://localhost:8000/student_all_notification",
+            "icon": "http://localhost:8000/static/dist/img/user2-160x160.jpg"
         },
         "to":token
     }

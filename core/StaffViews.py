@@ -5,7 +5,7 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 from core.models import Subjects, SessionYearModel, Students, Attendance, AttendanceReport, Staffs, LeaveReportStaff, \
-    FeedBackStaffs, CustomUser, Courses
+    FeedBackStaffs, CustomUser, Courses, NotificationStaffs
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -257,3 +257,8 @@ def staff_fcmtoken_save(request):
         return HttpResponse("True")
     except:
         return HttpResponse("False")
+
+def staff_all_notification(request):
+    staff=Staffs.objects.get(admin=request.user.id)
+    notifications=NotificationStaffs.objects.filter(staff_id=staff.id)
+    return render(request,"staff_template/all_notification.html",{"notifications":notifications})
