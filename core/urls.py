@@ -91,4 +91,5 @@ urlpatterns = [
     path('student_fcmtoken_save', StudentViews.student_fcmtoken_save, name="student_fcmtoken_save"),
     path('firebase-messaging-sw.js',views.showFirebaseJS,name="show_firebase_js"),
     path('student_all_notification',StudentViews.student_all_notification,name="student_all_notification"),
+    path('student_view_result',StudentViews.student_view_result,name="student_view_result"),
 ]
