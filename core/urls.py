@@ -1,6 +1,7 @@
 from django.urls import path, include
 
 from core import views, HodViews, StaffViews, StudentViews
+from core.EditResultVIewClass import EditResultViewClass
 
 urlpatterns = [
     path('demo', views.showDemoPage, name="demo_page"),
@@ -73,6 +74,8 @@ urlpatterns = [
     path('staff_all_notification', StaffViews.staff_all_notification, name="staff_all_notification"),
     path('staff_add_result', StaffViews.staff_add_result, name="staff_add_result"),
     path('save_student_result', StaffViews.save_student_result, name="save_student_result"),
+    path('edit_student_result',EditResultViewClass.as_view(), name="edit_student_result"),
+    path('fetch_result_student',StaffViews.fetch_result_student, name="fetch_result_student"),
 
 
     # student
