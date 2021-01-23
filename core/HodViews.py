@@ -584,3 +584,4 @@ def send_student_notification(request):
     print(data.text)
     return HttpResponse("True")
 
+

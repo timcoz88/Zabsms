@@ -85,6 +85,9 @@ urlpatterns = [
     path('save_student_result', StaffViews.save_student_result, name="save_student_result"),
     path('edit_student_result', EditResultViewClass.as_view(), name="edit_student_result"),
     path('fetch_result_student', StaffViews.fetch_result_student, name="fetch_result_student"),
+    path('start_live_classroom',StaffViews.start_live_classroom, name="start_live_classroom"),
+    path('start_live_classroom_process',StaffViews.start_live_classroom_process, name="start_live_classroom_process"),
+
 
     # student
     path('student_home', StudentViews.student_home, name="student_home"),
