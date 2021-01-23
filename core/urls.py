@@ -104,4 +104,6 @@ urlpatterns = [
     path('firebase-messaging-sw.js', views.showFirebaseJS, name="show_firebase_js"),
     path('student_all_notification', StudentViews.student_all_notification, name="student_all_notification"),
     path('student_view_result', StudentViews.student_view_result, name="student_view_result"),
+    path('join_class_room/<int:subject_id>/<int:session_year_id>',StudentViews.join_class_room,name="join_class_room"),
+    path('node_modules/canvas-designer/widget.html',StaffViews.returnHtmlWidget,name="returnHtmlWidget"),
 ]

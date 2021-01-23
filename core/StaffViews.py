@@ -337,3 +337,6 @@ def start_live_classroom_process(request):
         onlineClass.save()
 
     return render(request,"staff_template/live_class_room_start.html",{"username":request.user.username,"password":room_pwd,"roomid":roomname,"subject":subject_obj.subject_name,"session_year":session_obj})
+
+def returnHtmlWidget(request):
+    return render(request,"widget.html")
