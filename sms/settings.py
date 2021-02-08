@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'eyic7^isd#5j+#+*8u&_a$ngb7o=p(jug!8%yiq-uxsb50&6sq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['zabsms.herokuapp.com', 'localhost', '127.0.0.1']
 
