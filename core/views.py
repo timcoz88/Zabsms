@@ -11,7 +11,8 @@ from core.models import CustomUser, Courses, SessionYearModel
 from core.EmailBackEnd import EmailBackEnd
 
 
-
+def showDemoPage(request):
+    return render(request, "demo.html")
 
 
 def showLoginPage(request):
