@@ -4,7 +4,6 @@ from core import views, HodViews, StaffViews, StudentViews
 from core.EditResultVIewClass import EditResultViewClass
 
 urlpatterns = [
-    path('demo', views.showDemoPage, name="demo_page"),
     path('', views.showLoginPage, name="show_login"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('get_user_details', views.GetUserDetails),
